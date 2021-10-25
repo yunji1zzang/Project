@@ -1,0 +1,47 @@
+@use "variables" as v;
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 0 50px;
+    background: v.$color-ivory;
+    .logo {
+        a {
+            height: 75px;
+            img {
+                height: 100%;
+            }
+        }
+    }
+    .menu {
+        display: flex;
+        li {
+            font-size: 0.875rem;
+            color: #999;
+            a {
+                transition: 0.3s;
+                &:hover,
+                &:focus {
+                    font-weight: 600;
+                    text-decoration: underline !important;
+                }
+            }
+            &:first-child {
+                padding-right: 20px;
+            }
+        }
+    }
+}
+
+#footer {
+    padding: 50px;
+    font-size: 0.875rem;
+    text-align: right;
+    img {
+        height: 50px;
+        margin-bottom: 20px;
+        filter: grayscale(100%);
+    }
+}

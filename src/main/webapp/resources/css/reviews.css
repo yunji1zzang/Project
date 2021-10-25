@@ -1,0 +1,226 @@
+/* reviewList */
+/* 검색창, 후기 게시판, 페이징네이션, 사용후기 버튼 전체 정렬 */
+#sit_center_t {width: 1200px; height: auto; margin: 0 auto; padding: 45px 0;}
+#sit_use {margin:0 0 30px; width: 100%;}
+
+/* 후기 게시판 */
+#sit_use h2 {margin:0 0 10px; font-size: 1.5em; font: bold; font-weight:bold;}
+#sit_use_ol {margin:0 0 10px;padding:10;border-top:1px solid #000;list-style:none}
+.sit_use_li {position:relative;padding:0 0 10px;border-bottom:1px solid #eee;background:#fff}
+
+/* 제목, 작성자, 등록일, 조회수 전체 정렬 */
+.sit_use_li_title {display:block;margin:0;padding:10px 0 5px; font-size:1em; width:100%;border:0;background:transparent;text-align:left;cursor:pointer;}
+
+/* 작성자, 등록일, 조회수 */
+.sit_use_dl {margin:0;padding:0 ;text-align:left;color:#999;zoom:1}
+/* 작성자, 등록일, 조회수 정렬 */
+.sit_use_dl dt {position:absolute;font-size:0;line-height:0;content:""}
+.sit_use_dl dd {display:inline-block;margin:0 5px 0 0;font-size:0.8em;} 
+
+/* 이미지 설정*/
+.w-24 {width: 8rem;}
+.h-24 {height: 8rem;}
+.rounded-md {border-radius: .375rem;}
+
+/* 이미지<->제목 정렬*/
+.space-x-4>:not([hidden])~:not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(1rem*var(--tw-space-x-reverse));
+    margin-left: calc(1rem*(1 - var(--tw-space-x-reverse)));
+}
+.flex {
+    display: -webkit-flex;
+    display: flex;
+}
+/* 페이징 */
+.pg_wrap {clear:both;text-align:center;padding:12px;text-align:center}
+.pg{display:inline-block;border:1px solid #ddd;border-left:0}
+.pg:after {display:block;visibility:hidden;clear:both;content:""}
+.pg_page, .pg_current, .qa_page {display:inline-block;float:left;padding:0 10px;height:30px;color:#000;letter-spacing:0;line-height:30px;min-width:10px;vertical-align:middle;border-left:1px solid #ddd;background:#fff}
+.pg a:focus, .pg a:hover {text-decoration:none}
+.pg_current {display:inline-block;margin:0;background:#000;color:#fff;font-weight:normal}
+.sound_only {display:inline-block !important;position:absolute;top:0;left:0;margin:0 !important;padding:0 !important;font-size:0;line-height:0;border:0 !important;overflow:hidden !important}
+ 
+/* 사용후기 쓰기 버튼 */
+#sit_use_wbtn02 {
+    color: white;
+    text-align: right;
+}
+a.btn02 {
+    display:inline-block; 
+    padding:0 28px;
+    line-height:35px;
+    background:black;
+    border: 1px solid darkgray;
+}
+a.btn02:hover {
+    background: rgb(56, 55, 55);
+    transition: all .2s ease-out, color .2s ease-out;
+}
+
+@media screen and (max-width: 1094px) {
+    /* 제목, 작성자, 등록일, 조회수 전체 정렬 */
+    .sit_use_li_title {font-size:0.9em;}
+    
+    /* 이미지 설정*/
+    .w-24 {width: 6rem;}
+    .h-24 {height: 6rem;}
+    
+    /* 페이징 */
+    .pg_wrap {
+        padding-top: 30px;
+        margin-right: 320px;
+    }
+
+    /* 사용후기 쓰기 버튼 */
+    #sit_use_wbtn02 {
+        margin-right: 340px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+/* 검색창, 후기 게시판, 페이징네이션, 사용후기 버튼 전체 정렬 */
+#sit_center_t {padding: 15px 0;}
+#sit_use {width: 54%;}
+
+/* 후기 게시판 */
+#sit_use h2 {font-size: 1em;}
+#sit_use_ol {border-top: none;}
+.sit_use_li {border-bottom: none;}
+    
+/* 제목, 작성자, 등록일, 조회수 전체 정렬 */
+.sit_use_li_title {font-size:0.9em;}
+
+/* 이미지 설정*/
+.w-24 {width: 4rem;}
+.h-24 {height: 4rem;}
+
+/* 페이징 */
+.pg_wrap {
+    padding-top: 30px;
+    margin-right: 300px;
+    padding-bottom: 5px;
+}
+.pg_page, .pg_current, .qa_page {
+    padding:0 8px;
+    height:25px;
+    font-size: 0.8em;
+    }
+
+/* 사용후기 쓰기 버튼 */
+#sit_use_wbtn02 {
+    font-size: 0.8em;
+    margin-right: 300px;
+}
+a.btn02 {
+    padding:0 20px;
+    line-height:30px;
+    }
+}
+
+/* review */
+/* 이미지에 따른 전체 비율 */
+#max-w-lg {
+    padding-top: 100px;
+}
+/* 후기 시작 */
+#rev_use{ width: 1400px; height: auto; margin: 0 auto; padding: 45px 0; }
+#rev_use h2 {margin:0 0 10px; font-size: 1.5em; font: bold; font-weight:bold;}
+#rev_use_ol {border-top:1px solid #000; list-style:none;height: auto;}
+
+/* 기본 정렬*/
+
+/* 이미지 크기 고정, 정렬 */
+.text-img {
+    float: left;
+    text-align : center;
+}
+.text-img img{ 
+    display : inline;
+    width: 600px; 
+    height: 600px;
+    object-fit: cover;
+}
+/* 글 전체*/
+.text-all{margin-left: 600px;}
+/* 글 제목 */
+.text-title {margin-top: 25px; margin-bottom: 25px; margin-left: 20px;  font-weight: bold; font-size: 1.2em;}
+/* 내용 */
+.text-content {height: 435px; padding-bottom: 10px; margin-left: 20px; font-size: 1.0em }
+/* 작성 정보 */
+.writer {margin-top: 10px; margin-bottom: 5px; margin-left: 20px; font-size: 1.0em}
+
+/* 버튼 */
+#sit_use_wbtn01 {
+    color: white;
+    text-align: right;
+}
+a.btn01 {
+    display:inline-block; 
+    padding:0 28px;
+    line-height:35px;
+    background:black;
+    border: 1px solid darkgray;
+}
+a.btn01:hover {
+    background: rgb(56, 55, 55);
+    transition: all .2s ease-out, color .2s ease-out;
+}
+
+@media screen and (max-width: 1400px) {
+#rev_use{width: 850px;}
+/* 글 전체*/
+.text-all{margin-left: 440px;}
+/* 글 제목 */
+.text-title {margin-top: 15px; margin-bottom: 15px;font-size: 1.1em;}
+/* 내용 */
+.text-content {height: 317px; margin-left: 20px; padding-bottom: 10px; font-size: 0.9em }
+/* 작성 정보 */
+.writer {font-size: 0.9em}
+/* 이미지 크기 고정, 정렬 */
+.text-img img{ 
+    width: 450px; 
+    height: 450px; 
+    }
+}
+
+@media screen and (max-width: 850px) {
+#max-w-lg {
+    padding-top: 20px;
+}
+#rev_use{width: 390px; padding-top: 15px;}
+#rev_use h2 {margin-bottom:0px; font-size: 1.3em; font: bold; font-weight:bold;}
+#rev_use_ol {border-top:none;}
+
+/* 이미지 크기 고정, 정렬 */
+.text-img img{ 
+    clear:both;
+    margin-bottom: 15px;
+    width: 390px; 
+    height: 390px;
+}
+/* 글 전체*/
+.text-all{margin-left: 0px;}
+/* 글 제목 */
+.text-title {margin-bottom: 10px; margin-left: 0px;  font-weight: bold; font-size: 0.9em;}
+/* 내용 */
+.text-content {width: 400px;  height: 250px; padding-bottom: 10px; margin-left: 0px; font-size: 0.8em }
+/* 작성 정보 */
+.writer {margin-top: 10px; margin-bottom: 5px; margin-left: 0px; font-size: 0.8em}
+/* 버튼 */
+#sit_use_wbtn01 {
+    color: white;
+    text-align: right;
+}
+a.btn01 {
+    display:inline-block; 
+    padding:0 28px;
+    line-height:35px;
+    background:black;
+    border: 1px solid darkgray;
+}
+a.btn01:hover {
+    background: rgb(56, 55, 55);
+    transition: all .2s ease-out, color .2s ease-out;
+    }
+}        

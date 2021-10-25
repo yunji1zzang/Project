@@ -1,0 +1,59 @@
+@use "variables" as v;
+
+.wrapper {
+    text-align: center;
+    .inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        figure {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            width: 200px;
+            height: 200px;
+            margin-bottom: 50px;
+            border-radius: 50%;
+            background: v.$color-lightgreen; // temp
+            overflow: hidden;
+            i {
+                font-size: 9.375rem;
+                color: #f0f0f0;
+            }
+        }
+        form {
+            .select {
+                margin-bottom: 10px;
+                label:first-child {
+                    padding-right: 10px;
+                    font-size: 0.875rem;
+                    color: #666;
+                }
+            }
+            .inputs {
+                margin-bottom: 25px;
+                input {
+                    width: 100%;
+                    height: 45px;
+                    font-size: 0.875rem;
+                    &:first-child {
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+            button {
+                height: 45px;
+            }
+        }
+        .link-signup {
+            margin-top: 50px;
+            font-size: 0.75rem;
+            color: #666;
+            a {
+                color: v.$color-green;
+            }
+        }
+    }
+}

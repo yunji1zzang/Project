@@ -1,0 +1,74 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+
+<html>
+<head>
+	<title>회원정보 수정</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+
+	<form method="post" action="user/userInsert" enctype="multipart/form-data">
+		<div>
+			<label for="user_id">아이디</label>
+			<input type="text" id="user_id" name="user_id" value="test">
+		</div>
+		<div>
+			<label for="user_password">비밀번호</label>
+			<input type="password" id="user_password" name="user_password" value="test">
+		</div>
+		<div>
+			<label for="user_email">이메일</label>
+			<input type="text" id="user_email" name="user_email" value="test">
+		</div>
+		<div>
+			<label for="user_name">이름</label>
+			<input type="text" id="user_name" name="user_name" value="test">
+		</div>
+		<div>
+			<label for="user_birth">생년월일</label>
+			<input type="text" id="user_birth" name="user_birth" value="test">
+		</div>
+		<div>
+			<label for="user_phone">전화번호</label>
+			<input type="text" id="user_phone" name="user_phone" value="test">
+		</div>
+		<div>
+			<label for="user_basic_address">기본주소</label>
+			<input type="text" id="user_basic_address" name="user_basic_address" value="test">
+		</div>
+		<div>
+			<label for="user_detail_address">상세주소</label>
+			<input type="text" id="user_detail_address" name="user_detail_address" value="test">
+		</div>
+		<div>
+			<label for="user_img">이미지</label>
+			<input type="file" id="user_img" name="file">
+			 <script>
+			  $("#user_img").change(function(){
+			   if(this.files && this.files[0]) {
+			    var reader = new FileReader;
+			    reader.onload = function(data) {
+			     $(".select_img img").attr("src", data.target.result).width(500);        
+			    }
+			    reader.readAsDataURL(this.files[0]);
+			   }
+			  });
+			 </script>
+			 <div class="select_img img" style="margin:20px 0"><img src=""/></div>
+			 <!-- 확인용 절대경로 -->
+			<%--  <%=request.getRealPath("/") %> --%>
+		</div>
+		<div>
+			<label for="user_admin">관리자 생성</label>
+			<input type="text" id="user_admin" name="user_admin" value="test">
+		</div>
+		<div>
+			<button type="submit" id="insert">회원가입</button>
+			<button type="button">취소</button>
+		</div>
+	</form>
+	
+</body>
+</html>

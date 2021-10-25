@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="userMapping">
+	
+    <!-- 로그인 -->
+	<select id="login" resultType="userVO">
+		SELECT USER_ID, USER_PASSWORD 
+		  FROM USER_ACCOUNT
+		 WHERE USER_ID = #{user_id}
+		   AND USER_PASSWORD = #{user_password}
+	</select>
+	<insert id="insertUser" parameterType="userVO">
+		INSERT INTO USER_ACCOUNT
+		 VALUES(
+		#{user_id},
+		#{user_password},
+		#{user_email},
+		#{user_name},
+		#{user_birth},
+		#{user_phone},
+		#{user_basic_address},
+		#{user_detail_address},
+		#{user_img},
+		#{user_admin}
+		)
+	</insert>
+	
+	<update id="updateUser" parameterType="userVO">
+		UPDATE USER_ACCOUNT SET
+	   USER_EMAIL = #{user_email},
+	   USER_NAME = #{user_name},
+	   USER_BIRTH = #{user_birth},
+	   USER_PHONE = #{user_phone},
+	   USER_BASIC_ADDRESS = #{user_basic_address},
+	   USER_DETAIL_ADDRESS = #{user_detail_address},
+	   USER_IMG = #{user_img}
+	   WHERE USER_ID = #{user_id}
+	</update>
+	<delete id="deleteUser" parameterType="userVO">
+	DELETE FROM USER_ACCOUNT 
+	WHERE USER_ID = #{user_id}
+	AND USER_PASSWORD = #{user_password}
+	
+	</delete>
+	<select id="selectUser" parameterType="userVO"  resultType="userVO">
+	SELECT * FROM USER_ACCOUNT WHERE USER_ID = #{user_id}
+	</select>
+	
+	
+	<!-- Review 후기 부분 -->
+	<resultMap id="reviewResult" type="reviewVO">
+		<id property="reviewNum" column="ID"/>
+		<result property="title" column="TITLE" />
+        <result property="writer" column="WRITER" />
+        <result property="content" column="CONTENT" />
+        <result property="regDate" column="REGDATE" />
+        <result property="viewCnt" column="VIEW_CNT" />
+	</resultMap>  
+	
+	
+	<!-- 등록 -->
+	<insert id="reviewInsert">
+	<![CDATA[
+	INSERT INTO UGLY_BOARD(ID, TITLE, WRITER, CONTENT) 
+	VALUES(IDX_SEQ.NEXTVAL, #{title}, #{writer}, #{content})
+	]]>
+	</insert>
+	
+	<!-- 수정 -->
+	<update id="reviewUpdate">
+	<![CDATA[
+		UPDATE UGLY_BOARD SET TITLE=#{title}, CONTENT=#{content} WHERE ID = #{boardNum}
+	]]>
+	</update>
+	
+	
+	<!-- 삭제 -->
+	<delete id="reviewDelete">
+	<![CDATA[
+		DELETE UGLY_BOARD WHERE ID = #{boardNum}
+	]]>
+	</delete>
+	
+	<!-- 내용 보기 -->
+	<select id="getReview" resultType="reviewVO">
+	<![CDATA[
+		SELECT * FROM UGLY_BOARD WHERE ID=#{boardNum}
+	]]>
+	</select>
+	
+	<!-- 글 목록 보기  -->
+	<select id="getReviewList" resultType="reviewVO" resultMap="reviewResult">
+		SELECT * FROM UGLY_BOARD
+		WHERE 1 = 1
+		<if test="searchCondition == 'TITLE'">
+			AND TITLE LIKE '%'||#{searchKeyword}||'%' 
+		</if>
+		<if test="searchCondition == 'CONTENT'">
+			AND CONTENT LIKE '%'||#{searchKeyword}||'%'
+		</if> 
+		ORDER BY ID DESC
+	</select>
+	
+	<!-- 조회수 증가 -->
+	<update id="viewcnt" >
+		UPDATE UGLY_BOARD SET VIEW_CNT = (#{viewCnt} + 1) WHERE ID = #{reviewNum}
+	</update>
+	
+<!-- 	<resultMap id="memResult" type="memberVO">
+		<result property="id" column="id" />
+        <result property="pwd" column="pwd" />
+        <result property="name" column="name" />
+        <result property="email" column="email" />
+        <result property="joinDate" column="joinDate" />
+	</resultMap>  -->
+	<!-- 
+	<resultMap id="memResult" type="java.util.HashMap">
+      <result property="id" column="id" />
+      <result property="pwd" column="pwd" />
+      <result property="name" column="name" />
+      <result property="email" column="email" />
+      <result property="joinDate" column="joinDate" />
+   </resultMap> -->
+
+
+	<!-- <select id="selectAllMemberList" resultMap="memResult">
+      <![CDATA[
+         select * from t_member	order by joinDate desc	 	
+      ]]>
+	</select>
+    
+     <insert id="insertMember"  parameterType="memberVO">
+		<![CDATA[
+		 insert into t_member(id,pwd, name, email)
+		 values(#{id}, #{pwd}, #{name}, #{email})
+		]]>      
+	</insert>
+	
+   
+   <update id="updateMember"  parameterType="memberVO">
+     <![CDATA[
+	     update t_member
+	     set pwd=#{pwd}, name=#{name}, email=#{email}
+	     where
+	     id=#{id}
+      ]]>      
+   </update> 
+     
+   <delete id="deleteMember"  parameterType="String">
+	<![CDATA[
+	   delete from  t_member
+	   where
+	   id=#{id}
+	]]>      
+  </delete>
+  <select id="loginById"  resultType="memberVO"   parameterType="memberVO" >
+	<![CDATA[
+		select * from t_member	
+		where id=#{id} and pwd=#{pwd}		
+	]]>
+  </select> -->
+</mapper>

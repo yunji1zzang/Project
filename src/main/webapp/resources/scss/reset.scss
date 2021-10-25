@@ -1,0 +1,152 @@
+@use "variables" as v;
+
+/* font */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+
+html,
+body {
+    height: 100%;
+    font-size: 16px;
+    color: #222;
+}
+
+body {
+    font-family: v.$font-sanserif !important;
+    letter-spacing: -0.025em !important;
+}
+
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+html,
+body,
+button,
+dd,
+dl,
+dt,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+legend,
+li,
+ol,
+p,
+select,
+table,
+td,
+textarea,
+th,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+fieldset,
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+img,
+video {
+    max-width: 100%;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+address,
+em {
+    font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none !important;
+    color: inherit !important;
+    cursor: pointer;
+}
+
+input[type="button"],
+button {
+    cursor: pointer;
+}
+
+button {
+    border: 0;
+}
+
+.sr-only {
+    position: absolute;
+    left: -99999px !important;
+    width: 0px !important;
+    height: 0px !important;
+    clip: rect(0000);
+    overflow: hidden;
+}
+
+.clearfix {
+    &::after {
+        content: "";
+        clear: both;
+    }
+}
+
+.error {
+    font-size: 0.875rem !important;
+    color: v.$color-red !important;
+}
+
+.text-trunc {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.pc {
+    @include v.breakpointMd() {
+        display: none;
+    }
+}
+
+.mb {
+    display: none;
+    @include v.breakpointMd() {
+        display: block;
+    }
+}
+
+.wrapper {
+    height: 100%;
+}
+
+.btn-green {
+    background: v.$color-darkgreen !important;
+    color: #fff !important;
+    transition: 0.3s;
+    &:hover,
+    &:focus {
+        background: v.$color-lightgreen !important;
+    }
+}

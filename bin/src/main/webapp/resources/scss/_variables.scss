@@ -1,0 +1,27 @@
+/* colors */
+$color-darkgreen: #386641;
+$color-green: #6a994e;
+$color-lightgreen: #a7c957;
+$color-ivory: #f2e8cf;
+$color-red: #bc4749;
+$color-black: #222;
+$color-grey: #eee;
+
+/* fonts */
+$font-sanserif: "Noto Sans KR", sans-serif;
+
+/* breakpoint for responsive site */
+$breakpoint-md: 768px;
+
+@mixin breakpointMd {
+    @media (max-width: #{$breakpoint-md}) {
+        @content;
+    }
+}
+
+/* vendor prefix */
+@mixin vendorPrefix($name, $value) {
+    @each $vendor in ("-webkit-", "-moz-", "-ms-", "-o-", "") {
+        #{$vendor}#{$name}: #{$value};
+    }
+}
